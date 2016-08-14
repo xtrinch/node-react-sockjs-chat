@@ -8,12 +8,24 @@ Setup:
     $ npm install -g concurrently webpack-dev-server nodemon
     $ npm install
 
-For running development server:
+## For running development server:
 
     $ npm run-script watch
+
+In development, Node.js is running on port 8080, requests from the client are 
+proxied to it by webpack-dev-server running on port 3000.
 
 Browse to: 
 
     http://localhost:3000/
 
-Note: Node.js is running on port 8080, requests from the client are proxied by webpack-dev-server
+## For running producion server:
+
+    $ npm run-script production
+    
+With this command, all files are bundled and a single Node.js server instance
+runs at port 8080, serving the bundled files as static assets.
+
+Browse to: 
+
+    http://localhost:8080/
