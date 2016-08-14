@@ -13,6 +13,7 @@ For running development server:
     $ npm run-script watch
 
 Browse to: 
+
     http://localhost:3000/
 
 Note: Node.js is running on port 8080, requests from the client are proxied by webpack-dev-server
