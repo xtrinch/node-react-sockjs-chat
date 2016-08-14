@@ -6,7 +6,7 @@
   "scripts": {
     "production-build": "webpack",
     "production-run": "node server/server.js",
-    "production": "npm run production-build && npm run production-run",
+    "production": "NODE_ENV=production npm run production-build && npm run production-run",
     "watch": "concurrently \"npm run watch-server\" \"npm run watch-client\"",
     "watch-client": "webpack-dev-server --inline --hot --port 3000",
     "watch-server": "nodemon server/server.js"
