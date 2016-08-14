@@ -8,6 +8,7 @@ var constants = require('./constants.js');
 var app = express();
 var server = http.createServer(app);
 var port = process.env.PORT || 8080;
+var production = process.env.NODE_ENV === 'production';
 
 var comments = [];
 var connections = {};
@@ -90,11 +91,12 @@ sockjs_chat.on('connection', function(conn) {
 	});
 });
 
-/*app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname + '/../index.html'))
-})*/
-//app.use(express.static(path.resolve(__dirname, '../build')));
-
+if (production) {
+    /*app.get('/', function(req, res) {
+        res.sendFile(path.join(__dirname + '/../index.html'))
+    })*/
+    app.use(express.static(path.resolve(__dirname, '../build')));
+}
 sockjs_chat.installHandlers(server, {prefix:'/chat'});
 server.listen(port, function() {
     console.log("Listening on " + port);

@@ -4,6 +4,9 @@
   "description": "Chat application using nodejs, sockjs and reactjs",
   "main": "index.js",
   "scripts": {
+    "production-build": "webpack",
+    "production-run": "node server/server.js",
+    "production": "npm run production-build && npm run production-run",
     "watch": "concurrently \"npm run watch-server\" \"npm run watch-client\"",
     "watch-client": "webpack-dev-server --inline --hot --port 3000",
     "watch-server": "nodemon server/server.js"
@@ -16,6 +19,7 @@
   "author": "xTrinch",
   "license": "MIT",
   "dependencies": {
+    "clean-webpack-plugin": "^0.1.10",
     "copy-webpack-plugin": "^3.0.1",
     "express": "^4.14.0",
     "jquery": "^3.1.0",
