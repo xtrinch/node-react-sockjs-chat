@@ -23,7 +23,7 @@ Browse to:
 
     $ npm run-script production
     
-With this command, all files are bundled and a single Node.js server instance
+With this command, all React files are bundled with webpack and a single Node.js server instance
 runs at port 8080, serving the bundled files as static assets.
 
 Browse to: 
