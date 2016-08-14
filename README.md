@@ -5,7 +5,7 @@ handling socket connections and React on the frontend handling view updates.
 
 Setup:
 
-    $ npm install -g concurrently webpack-dev-server
+    $ npm install -g concurrently webpack-dev-server nodemon
     $ npm install
 
 For running development server:
