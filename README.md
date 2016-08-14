@@ -19,7 +19,7 @@ Browse to:
 
     http://localhost:3000/
 
-## For running producion server:
+## For running production server:
 
     $ npm run-script production
     
