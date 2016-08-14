@@ -1,0 +1,103 @@
+@import '_colors';
+
+body {
+    background-color: @grey;
+    font-family: tahoma;
+    height:100%;
+    overflow:hidden;
+}
+
+html, #react-app, #first, .commentsContainer {
+    height: 100%;
+}
+
+.box {
+    overflow: hidden;
+
+    .peopleList {
+        float: right;
+        width: 177px;
+        border-left: 3px solid black;
+        height: ~"calc(100% - 16px)";
+        div {
+            color: @light-green;
+            padding-left: 8px;
+            padding-right: 8px;
+            padding-top: 4px;
+            padding-bottom: 4px;
+        }
+
+        .peopleTitle {
+            color: white;
+        }
+    }
+
+    .commentsContainer {
+
+        width:  ~"calc(100% - 180px)";
+        float: left;
+        height: 100%;
+
+        .commentList {
+            overflow:auto;
+            height:  ~"calc(100% - 55px)";
+
+            div {
+                padding-left: 2px;
+                padding-right: 8px;
+                padding-top: 4px;
+                padding-bottom: 4px;
+            }
+        }
+
+        form input {
+            margin-bottom: 10px;
+            width:  ~"calc(100% - 12px)";
+            border: 2px solid black;
+            background-color: transparent;
+            color: @dark-green;
+            font-size: 16px;
+            font-family: tahoma;
+            padding-left: 10px;
+            outline:none;
+        }
+
+        .commentList {
+            background-color: @grey;
+        }
+    }
+}
+
+.box>div>div, .box input {
+    border: 0px solid;
+    -moz-border-radius: 4px;
+    border-radius: 0px;
+    padding: 0px;
+}
+
+.box>div>div {
+    border-color: grey;
+    overflow: auto;
+}
+.box input {
+    height: 35px;
+}
+
+div {
+    &.private {
+        color: grey;
+    }
+    &.text_message {
+        color: @middle-green;
+        .separator:before {
+            content: ":";
+        }
+
+        .author {
+            color: white;
+        }
+    }
+    &.joined_channel, &.left_channel {
+        color: @red;
+    }
+}
