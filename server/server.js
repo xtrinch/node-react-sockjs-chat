@@ -65,16 +65,46 @@ sockjs_chat.on('connection', function(conn) {
 	conn.on('data', function onDataCB (message) {
     	message = JSON.parse(message);
         if ( message.type == constants.text_message ) {
-			if ( !message.text ) return;
-			message.text = message.text.substr(0, 128)
-			if ( comments.length > 15 ) comments.shift();
+            if (message.text.startsWith('/')) {
+                // whisper the command back to the user
+                whisper(conn.id, new models.Message({
+                    type: constants.private,
+                    text: message.text
+                }))
 
-            // broadcast the received message
-			broadcast(new models.Message({
-                type: constants.text_message,
-                text: message.text,
-                username: users[conn.id].username
-            }));
+                // management commands
+                if (message.text == '/help') {
+                    whisper(conn.id, new models.Message({
+                        type: constants.help,
+                        text: constants.help_text
+                    }))
+                }
+                if (message.text.startsWith('/nick')) {
+                    var old_username = users[conn.id].username;
+                    var new_username = message.text.substring(message.text.indexOf(' ')+1);
+                    users[conn.id].username = new_username;
+
+                    broadcast(new models.Message({
+                        type: constants.username_changed,
+                        text: old_username + ' is now ' + new_username,
+                        data: {
+                            username: new_username,
+                            connection_id: conn.id
+                        }
+                    }))
+                }
+            } else {
+    			if ( !message.text ) return;
+    			message.text = message.text.substr(0, 128)
+    			if ( comments.length > 15 ) comments.shift();
+
+                // broadcast the received message
+    			broadcast(new models.Message({
+                    type: constants.text_message,
+                    text: message.text,
+                    username: users[conn.id].username
+                }));
+            }
         }
 	});
 

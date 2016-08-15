@@ -21,7 +21,7 @@ class Chat extends React.Component {
 
     _initialize() {
         console.log("connected");
-        this._sendMessage({text: 'Connected.', type: 'private', id: 'connected'});
+        this._sendMessage({text: 'Connected. Type /help for a list of available commands.', type: 'private', id: 'connected'});
     }
 
     _onMessage(e) {
@@ -56,6 +56,14 @@ class Chat extends React.Component {
                         (i) => i.username === message.username
                     ),1
                 );
+                this.setState(this.state);
+            } else if (message.type == 'username_changed') {
+                console.log(message)
+                this.state.people.forEach(function(user) {
+                    if (user.connection_id == message.data.connection_id) {
+                        user.username = message.data.username;
+                    }
+                })
                 this.setState(this.state);
             }
         }
