@@ -3,7 +3,11 @@
 A simple chat application featuring Node.js as the backend server, SockJS for
 handling socket connections and React on the frontend handling view updates.
 
-Setup:
+## See it in action:
+
+    http://chat.trina.si/
+
+## Setup:
 
     $ npm install -g concurrently webpack-dev-server nodemon
     $ npm install
@@ -29,7 +33,3 @@ runs at port 8080, serving the bundled files as static assets.
 Browse to: 
 
     http://localhost:8080/
-    
-## See it in action:
-
-    http://chat.trina.si/
