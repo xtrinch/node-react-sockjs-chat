@@ -3,9 +3,7 @@
 A simple chat application featuring Node.js as the backend server, SockJS for
 handling socket connections and React on the frontend handling view updates.
 
-## See it in action:
-
-    http://chat.trina.si/
+## See it in action: [http://chat.trina.si/](http://chat.trina.si/)
 
 ## Setup:
 
