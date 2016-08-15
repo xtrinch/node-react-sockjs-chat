@@ -128,6 +128,6 @@ if (production) {
     app.use(express.static(path.resolve(__dirname, '../build')));
 }
 sockjs_chat.installHandlers(server, {prefix:'/chat'});
-server.listen(port, function() {
+server.listen(port, '127.0.0.1', function() {
     console.log("Listening on " + port);
 })
