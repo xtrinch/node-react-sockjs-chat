@@ -29,3 +29,7 @@ runs at port 8080, serving the bundled files as static assets.
 Browse to: 
 
     http://localhost:8080/
+    
+## See it in action:
+
+    http://chat.trina.si/
