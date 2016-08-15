@@ -84,7 +84,7 @@ html, #react-app, #first, .commentsContainer {
 }
 
 div {
-    &.private {
+    &.private, &.help {
         color: grey;
     }
     &.text_message {
@@ -100,7 +100,7 @@ div {
     &.joined_channel, &.left_channel {
         color: @red;
     }
-    &.username_changed, &.help {
+    &.username_changed {
         color: @light-green;
     }
 }
