@@ -31,3 +31,9 @@ runs at port 8080, serving the bundled files as static assets.
 Browse to: 
 
     http://localhost:8080/
+    
+## Docker support
+
+    $ docker-compose up -d
+
+Mounts the files into a container and exposes port 8001.
