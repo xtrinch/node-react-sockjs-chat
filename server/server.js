@@ -22,6 +22,7 @@ function whisper (id, message) {
 
 // broadcast message to all users
 function broadcast (message) {
+    if ( comments.length > 15 ) comments.shift();
     for ( var i in connections ) {
         connections[i].write(JSON.stringify(message));
     }
@@ -96,7 +97,6 @@ sockjs_chat.on('connection', function(conn) {
             } else {
     			if ( !message.text ) return;
     			message.text = message.text.substr(0, 128)
-    			if ( comments.length > 15 ) comments.shift();
 
                 // broadcast the received message
     			broadcast(new models.Message({
