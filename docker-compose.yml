@@ -1,0 +1,8 @@
+app:
+  image: nodesource/node
+  restart: always
+  volumes:
+    - .:/usr/src/app
+  entrypoint: "npm run-script production"
+  ports:
+    - "8001:8080"
